@@ -25,4 +25,4 @@ public class Hotel {
 	public int getRegularRate() {
 		return regularRate;
 	}
-}
+}//
