@@ -15,7 +15,7 @@ public class Main {
 			String hotelName = sc.next();
 			System.out.println("Enter the Regular rate: ");
 			int regularRate = sc.nextInt();
-			HotelReservation.addRegularRateAndHotelName(hotelName, regularRate);
+			HotelReservation.addRegulaRateAndHotelName(hotelName, regularRate);
 			System.out.println("Add more hotel- (Yes/No)");
 			String choice = sc.next();
 			if (choice.equalsIgnoreCase("Yes"))
@@ -24,7 +24,15 @@ public class Main {
 				break;
 		}
 
+		System.out.println("Find Cheapest Hotel in Date Range:- ");
+		System.out.println("Enter Start Date(YYYY-MM-DD):- ");
+		String startDate = sc.next();
+		System.out.println("Enter End Date(YYYY-MM-DD):- ");
+		String endDate = sc.next();
+		HotelReservation.findCheapestHotel(startDate, endDate);
+
 		sc.close();
 	}
+
 
 }
