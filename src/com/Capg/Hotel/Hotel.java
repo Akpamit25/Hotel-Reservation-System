@@ -26,7 +26,7 @@ public class Hotel {
 		this.rating = rating;
 	}
 
-	public int getRating() {
+	public int getRating() {//
 		return rating;
 	}
 
