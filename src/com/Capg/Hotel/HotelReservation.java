@@ -4,14 +4,14 @@ import java.time.DayOfWeek;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List;//
 
 public class HotelReservation {
 
 	public static List<Hotel> hotelList = new ArrayList<Hotel>();
 
-	public static void addRateAndHotelName(String hotelName, int weeklyRate, int weekEndRate) {
-		Hotel hotel = new Hotel(hotelName, weeklyRate, weekEndRate);
+	public static void addRateAndHotelName(String hotelName, int rating, int weeklyRate, int weekEndRate) {
+		Hotel hotel = new Hotel(hotelName, rating, weeklyRate, weekEndRate);
 		hotelList.add(hotel);
 	}
 
@@ -39,7 +39,7 @@ public class HotelReservation {
 				else
 					hotelRent = hotelRent + hotel.getWeeklyRate();
 
-				start = start.plusDays(1);//
+				start = start.plusDays(1);
 
 			}
 			if (hotelRent <= minRate) {
