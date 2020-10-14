@@ -1,9 +1,25 @@
 package com.Capg.Hotel;
+
+import java.util.Date;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class Main {
 
-	public static void main(String[] args) {
+	private static boolean isThisDateValid(String date) {
+		try {
+			LocalDate.parse(date, DateTimeFormatter.ISO_DATE);
+		} catch (DateTimeParseException e) {
+			return false;
+		}
+		return true;
+	}
+
+	public static void main(String[] args) throws Exception {
 
 		System.out.println("Welcome to Hotel Reservation Program");
 
@@ -39,13 +55,6 @@ public class Main {
 		String endDate = sc.next();
 		HotelReservation.findCheapestHotel(startDate, endDate);
 
-		System.out.println("Find Cheapest Best Rated Hotel in Date Range:- ");
-		System.out.println("Enter Start Date(YYYY-MM-DD):- ");
-		String start = sc.next();
-		System.out.println("Enter End Date(YYYY-MM-DD):- ");
-		String end = sc.next();
-		HotelReservation.findCheapestBestRatedHotel(start, end);
-
 		System.out.println("Find Best Rated Hotel in Date Range:- ");
 		System.out.println("Enter Start Date(YYYY-MM-DD):- ");
 		String startD = sc.next();
@@ -53,7 +62,28 @@ public class Main {
 		String endD = sc.next();
 		HotelReservation.findBestRatedHotel(startD, endD);
 
+		System.out.println("Find Cheapest Best Rated Hotel for Customers in Date Range:- ");
+		System.out.println("Enter Start Date(YYYY-MM-DD):- ");
+		String start = sc.next();
+		boolean startValidate = isThisDateValid(start);
+		System.out.println("Enter End Date(YYYY-MM-DD):- ");
+		String end = sc.next();
+		boolean endValidate = isThisDateValid(end);
+
+		if (!(startValidate && endValidate))
+			throw new Exception("Invalid date");
+
+		System.out.println("Enter the type of customer (Regular/Reward)");
+		String customer = sc.next();
+		if (customer.equalsIgnoreCase("Regular"))
+			HotelReservation.findCheapestBestRatedHotel(start, end);
+
+		else if (customer.equalsIgnoreCase("Reward"))
+			HotelReservation.findCheapestBestRatedHotelWithRewardRates(startD, endD);
+
+		else
+			throw new Exception("Wrong Customer type");
+
 		sc.close();
 	}
-
 }
