@@ -1,5 +1,7 @@
 package com.Capg.Hotel;
 
+import java.time.DayOfWeek;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,25 +19,50 @@ public class HotelReservation {
 		LocalDate start = LocalDate.parse(startDate);
 		LocalDate end = LocalDate.parse(endDate);
 
-		Hotel cheapestHotel = null;
-		int minRate = 1000000;
+		LocalDate tempStart = start;
+		LocalDate tempEnd = end;
+
+		List<Hotel> cheapestHotelList = new ArrayList<>();
+		int minRate = 1000000000;
 
 		for (Hotel hotel : hotelList) {
-			LocalDate tempStart = start;
-			LocalDate tempEnd = end.plusDays(1);
+			start = tempStart;
+			end = tempEnd.plusDays(1);
 			int hotelRent = 0;
-			while (!(tempStart.equals(tempEnd))) {
-				hotelRent = hotelRent + hotel.getWeeklyRate();
-				tempStart = tempStart.plusDays(1);
+			while (!(start.equals(end))) {
+
+				int day = start.getDayOfWeek().getValue();
+
+				if (day == 6 || day == 7)
+					hotelRent = hotelRent + hotel.getWeekEndRate();
+
+				else
+					hotelRent = hotelRent + hotel.getWeeklyRate();
+
+				start = start.plusDays(1);//
+
 			}
-			if (hotelRent < minRate) {
+			if (hotelRent <= minRate) {
 				minRate = hotelRent;
-				cheapestHotel = hotel;
+				if (hotelRent < minRate) {
+					if (cheapestHotelList.size() == 0)
+						cheapestHotelList.add(hotel);
+
+					else {
+						cheapestHotelList.clear();
+						cheapestHotelList.add(hotel);
+					}
+
+				} else
+					cheapestHotelList.add(hotel);
 			}
 
 		}
-		System.out.println("The Cheapest option is: ");
-		System.out.println(cheapestHotel.getHotelName() + ", total rent :- " + minRate);
+		System.out.println("The Cheapest option is");
+		for (Hotel hotel : cheapestHotelList) {
+			System.out.println(hotel.getHotelName() + ", total rent :- " + minRate);
+
+		}
 
 	}
 
