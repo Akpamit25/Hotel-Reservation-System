@@ -3,7 +3,7 @@ package com.Capg.Hotel;
 public class Hotel {
 
 	private String hotelName;
-	private int weeklyRate;
+	private int weeklyRate;//
 	private int weekEndRate;
 
 	public Hotel(String hotelName, int weeklyRate, int weekEndRate) {

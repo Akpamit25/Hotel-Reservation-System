@@ -8,7 +8,7 @@ public class Main {
 
 		System.out.println("Welcome to Hotel Reservation Program");
 
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);//
 
 		while (true) {
 			System.out.println("Enter the hotel name for adding rates: ");
