@@ -44,7 +44,7 @@ public class Hotel {
 	}
 
 	public void setWeekEndRate(int weekEndRate) {
-		this.weekEndRate = weekEndRate;
+		this.weekEndRate = weekEndRate;//
 	}
 
 	public int getWeekEndRate() {
