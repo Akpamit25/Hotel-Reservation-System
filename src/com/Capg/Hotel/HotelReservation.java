@@ -123,7 +123,7 @@ public class HotelReservation {
 		int minRate = 1000000000;
 		int bestRating = 0;
 
-		for (Hotel hotel : hotelList) {
+		for (Hotel hotel : hotelList) {//
 			start = tempStart;
 			end = tempEnd.plusDays(1);
 			int hotelRent = 0;

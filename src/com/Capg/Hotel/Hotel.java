@@ -21,7 +21,7 @@ public class Hotel {
 	public String getHotelName() {
 		return hotelName;
 	}
-
+/////
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
