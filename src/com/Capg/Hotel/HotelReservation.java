@@ -111,4 +111,45 @@ public class HotelReservation {
 				+ ", total rent :- " + minRate);
 
 	}
+
+	public static void findBestRatedHotel(String startDate, String endDate) {
+		LocalDate start = LocalDate.parse(startDate);
+		LocalDate end = LocalDate.parse(endDate);
+
+		LocalDate tempStart = start;
+		LocalDate tempEnd = end;
+
+		Hotel cheapestHotel = null;
+		int minRate = 1000000000;
+		int bestRating = 0;
+
+		for (Hotel hotel : hotelList) {
+			start = tempStart;
+			end = tempEnd.plusDays(1);
+			int hotelRent = 0;
+			while (!(start.equals(end))) {
+
+				int day = start.getDayOfWeek().getValue();
+
+				if (day == 6 || day == 7)
+					hotelRent = hotelRent + hotel.getWeekEndRate();
+
+				else
+					hotelRent = hotelRent + hotel.getWeeklyRate();
+
+				start = start.plusDays(1);
+
+			}
+			if (hotel.getRating() > bestRating) {
+				bestRating = hotel.getRating();
+				minRate = hotelRent;
+				cheapestHotel = hotel;
+			}
+
+		}
+		System.out.println("The Best Rated option is");
+		System.out.println(cheapestHotel.getHotelName() + ", rating :- " + cheapestHotel.getRating()
+				+ ", total rent :- " + minRate);
+
+	}
 }
