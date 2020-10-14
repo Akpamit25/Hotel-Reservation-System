@@ -8,16 +8,18 @@ public class Main {
 
 		System.out.println("Welcome to Hotel Reservation Program");
 
-		Scanner sc = new Scanner(System.in);//
+		Scanner sc = new Scanner(System.in);
 
 		while (true) {
 			System.out.println("Enter the hotel name for adding rates: ");
 			String hotelName = sc.next();
+			System.out.println("Enter rating: ");
+			int rating = sc.nextInt();
 			System.out.println("Enter the Weekly rate: ");
 			int weeklyRate = sc.nextInt();
 			System.out.println("Enter the WeekEnd rate: ");
 			int weekEndRate = sc.nextInt();
-			HotelReservation.addRateAndHotelName(hotelName, weeklyRate, weekEndRate);
+			HotelReservation.addRateAndHotelName(hotelName, rating, weeklyRate, weekEndRate);
 			System.out.println("Add more hotel- (Yes/No)");
 			String choice = sc.next();
 			if (choice.equalsIgnoreCase("Yes"))
@@ -36,4 +38,4 @@ public class Main {
 		sc.close();
 	}
 
-}//
+}

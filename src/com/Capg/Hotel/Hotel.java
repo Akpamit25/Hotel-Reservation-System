@@ -3,14 +3,15 @@ package com.Capg.Hotel;
 public class Hotel {
 
 	private String hotelName;
-	private int weeklyRate;//
+	private int rating;
+	private int weeklyRate;
 	private int weekEndRate;
 
-	public Hotel(String hotelName, int weeklyRate, int weekEndRate) {
+	public Hotel(String hotelName, int rating, int weeklyRate, int weekEndRate) {
 		this.hotelName = hotelName;
+		this.rating = rating;
 		this.weeklyRate = weeklyRate;
 		this.weekEndRate = weekEndRate;
-
 	}
 
 	public void setHotelName(String hotelName) {
@@ -19,6 +20,14 @@ public class Hotel {
 
 	public String getHotelName() {
 		return hotelName;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
+	public int getRating() {
+		return rating;
 	}
 
 	public void setWeeklyRate(int weeklyRate) {
