@@ -13,9 +13,11 @@ public class Main {
 		while (true) {
 			System.out.println("Enter the hotel name for adding rates: ");
 			String hotelName = sc.next();
-			System.out.println("Enter the Regular rate: ");
-			int regularRate = sc.nextInt();
-			HotelReservation.addRegulaRateAndHotelName(hotelName, regularRate);
+			System.out.println("Enter the Weekly rate: ");
+			int weeklyRate = sc.nextInt();
+			System.out.println("Enter the WeekEnd rate: ");
+			int weekEndRate = sc.nextInt();
+			HotelReservation.addRateAndHotelName(hotelName, weeklyRate, weekEndRate);
 			System.out.println("Add more hotel- (Yes/No)");
 			String choice = sc.next();
 			if (choice.equalsIgnoreCase("Yes"))
@@ -34,5 +36,4 @@ public class Main {
 		sc.close();
 	}
 
-
-}
+}//
