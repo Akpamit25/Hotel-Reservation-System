@@ -1,12 +1,15 @@
 package com.Capg.Hotel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HotelReservation {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		System.out.println(" Welcome To Hotel Reservation Program !! ");
+	public static List<Hotel> hotelList = new ArrayList<Hotel>();
 
+	public static void addRegularRateAndHotelName(String hotelName, int regularRate) {
+		Hotel hotel = new Hotel(hotelName, regularRate);
+		hotelList.add(hotel);
 	}
 
 }
