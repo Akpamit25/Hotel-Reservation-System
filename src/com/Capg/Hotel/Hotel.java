@@ -21,12 +21,12 @@ public class Hotel {
 	public String getHotelName() {
 		return hotelName;
 	}
-
+/////
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
 
-	public int getRating() {//
+	public int getRating() {
 		return rating;
 	}
 
@@ -45,4 +45,4 @@ public class Hotel {
 	public int getWeekEndRate() {
 		return weekEndRate;
 	}
-}
+}/////
