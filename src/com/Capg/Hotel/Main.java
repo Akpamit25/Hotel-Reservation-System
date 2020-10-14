@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-/////
+
 		System.out.println("Welcome to Hotel Reservation Program");
 
 		Scanner sc = new Scanner(System.in);
@@ -18,7 +18,12 @@ public class Main {
 			int weeklyRate = sc.nextInt();
 			System.out.println("Enter the WeekEnd rate: ");
 			int weekEndRate = sc.nextInt();
-			HotelReservation.addRateAndHotelName(hotelName, rating, weeklyRate, weekEndRate);
+			System.out.println("Enter the Weekly Reward rate: ");
+			int weeklyRateReward = sc.nextInt();
+			System.out.println("Enter the WeekEnd Reward rate: ");
+			int weekEndRateReward = sc.nextInt();
+			HotelReservation.addRateAndHotelName(hotelName, rating, weeklyRate, weekEndRate, weeklyRateReward,
+					weekEndRateReward);
 			System.out.println("Add more hotel- (Yes/No)");
 			String choice = sc.next();
 			if (choice.equalsIgnoreCase("Yes"))
@@ -41,7 +46,7 @@ public class Main {
 		String end = sc.next();
 		HotelReservation.findCheapestBestRatedHotel(start, end);
 
-		System.out.println("Find Cheapest Best Rated Hotel in Date Range:- ");
+		System.out.println("Find Best Rated Hotel in Date Range:- ");
 		System.out.println("Enter Start Date(YYYY-MM-DD):- ");
 		String startD = sc.next();
 		System.out.println("Enter End Date(YYYY-MM-DD):- ");

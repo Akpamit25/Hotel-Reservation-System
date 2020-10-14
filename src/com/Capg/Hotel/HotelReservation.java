@@ -1,5 +1,4 @@
 package com.Capg.Hotel;
-
 import java.time.DayOfWeek;
 
 import java.time.LocalDate;
@@ -10,8 +9,9 @@ public class HotelReservation {
 
 	public static List<Hotel> hotelList = new ArrayList<Hotel>();
 
-	public static void addRateAndHotelName(String hotelName, int rating, int weeklyRate, int weekEndRate) {
-		Hotel hotel = new Hotel(hotelName, rating, weeklyRate, weekEndRate);
+	public static void addRateAndHotelName(String hotelName, int rating, int weeklyRate, int weekEndRate,
+			int weeklyRateReward, int weekEndRateReward) {
+		Hotel hotel = new Hotel(hotelName, rating, weeklyRate, weekEndRate, weeklyRateReward, weekEndRateReward);
 		hotelList.add(hotel);
 	}
 
@@ -123,7 +123,7 @@ public class HotelReservation {
 		int minRate = 1000000000;
 		int bestRating = 0;
 
-		for (Hotel hotel : hotelList) {//
+		for (Hotel hotel : hotelList) {
 			start = tempStart;
 			end = tempEnd.plusDays(1);
 			int hotelRent = 0;
